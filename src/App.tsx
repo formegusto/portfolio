@@ -1,11 +1,8 @@
 import React from 'react';
+import MainIntroPage from './pages/MainIntroPage';
 
 function App() {
-  return (
-    <>
-      iamformegusto
-    </>
-  );
+  return <MainIntroPage />
 }
 
 export default App;
