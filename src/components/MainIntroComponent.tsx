@@ -3,13 +3,23 @@ import { FullScreen } from '../atoms/Screens';
 import iamformegusto from '../assets/iamformegusto.png';
 import styled, { css, Keyframes, keyframes } from 'styled-components';
 import Palette from '../atoms/Palette';
+import { RouteComponentProps } from 'react-router';
 
-function MainIntroComponent() {
+type Props = {
+    routeProps: RouteComponentProps
+}
+
+function MainIntroComponent(props: Props) {
     const refImageBlock = useRef<HTMLDivElement>(null);
     const refTitleBlock = useRef<HTMLDivElement>(null);
     const [aniImgBlock, setAniImgBlock] = useState<Keyframes>(ShowHalf);
     const [aniTitleBlock, setAniTitleBlock] = useState<Keyframes | null>(null);
     const [showTitle, setShowTitle] = useState<boolean>(false);
+
+    const enterPortfolio = useCallback(() => {
+        setShowTitle(false);
+        setAniTitleBlock(CleanTitle);
+    }, []);
 
     const imgEventListener = useCallback(() => {
         if(aniImgBlock === ShowHalf) {
@@ -17,13 +27,36 @@ function MainIntroComponent() {
         } else if(aniImgBlock === HideBlock) {
             setAniImgBlock(ShowFull);
         } else if(aniImgBlock === ShowFull) {
-            setAniTitleBlock(ShowTitleBlock);
-        }
-    }, [aniImgBlock]);
+            if(refImageBlock.current) {
+                refImageBlock.current.style.transition = ".7s";
+                refImageBlock.current.style.cursor = "pointer";
+                
+                refImageBlock.current.onmouseenter = () => {
+                    refImageBlock.current!.style.transform = "translate(-7px,-7px)";
+                    refImageBlock.current!.style.boxShadow = "10px 10px 10px rgba(255,255,255,.7)";
+                }
 
-    const titleEventListenr = useCallback(() => {
-        setShowTitle(true);
-    }, []);
+                refImageBlock.current.onmouseleave = () => {
+                    refImageBlock.current!.style.transform = "translate(7px,7px)";
+                    refImageBlock.current!.style.boxShadow = "";
+                }
+
+                refImageBlock.current.onclick = enterPortfolio;
+            }
+
+            setAniTitleBlock(ShowTitleBlock);
+        } else if (aniImgBlock === CleanImage) {
+            props.routeProps.history.push('/portfolio/iamformegusto');
+        }
+    }, [aniImgBlock, enterPortfolio, props.routeProps.history]);
+
+    const titleEventListener = useCallback(() => {
+        if(aniTitleBlock === CleanTitle) {
+            setAniImgBlock(CleanImage);
+        } else {
+            setShowTitle(true);
+        }
+    }, [aniTitleBlock]);
 
     useEffect(() => {
         if(refImageBlock.current) {
@@ -31,13 +64,14 @@ function MainIntroComponent() {
         }
 
         if(refTitleBlock.current) {
-            refTitleBlock.current.addEventListener('animationend', titleEventListenr)
+            refTitleBlock.current.addEventListener('animationend', titleEventListener)
         }
 
         return () => {
+            refTitleBlock.current?.removeEventListener('animationend', titleEventListener);
             refImageBlock.current?.removeEventListener('animationend', imgEventListener);
         }
-    }, [imgEventListener, titleEventListenr]); 
+    }, [imgEventListener, titleEventListener]); 
 
     return <FullScreen>
         <Container>
@@ -116,13 +150,33 @@ const HideBlock = keyframes`
     }
 `;
 
+const CleanTitle = keyframes`
+    from {
+        width: 400px;
+        height: 400px;
+    } to {
+        width: 0;
+        height: 0;
+    }
+`;
+
+const CleanImage = keyframes`
+    from {
+        width: 500px;
+        height: 500px;
+    } to {
+        width: 0;
+        height: 0;
+    }
+`;
+
 const ShowTitleBlock = keyframes`
     from {
         width: 0;
         height: 0;
     } to {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
 `;
 
@@ -144,6 +198,12 @@ const TitleBlock = styled.div<{custom: TitleBlockStyleProps}>`
 
         font-size: 1.5rem;
         font-weight: 100;
+
+        line-height: 2.5rem;
+    }
+
+    & > h1:not(:last-child) {
+        margin-bottom: .5rem;
     }
 `
 
@@ -155,9 +215,6 @@ const ImageBlock = styled.div<{custom: ImageBlockStyleProps}>`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 500px;
-    height: 500px;
 
     background-color: ${Palette[0][7]};
 

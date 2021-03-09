@@ -1,9 +1,10 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router';
 import MainIntroComponent from '../components/MainIntroComponent';
 
-function MainIntroPage() {
+function MainIntroPage(props: RouteComponentProps) {
     return (
-        <MainIntroComponent />
+        <MainIntroComponent routeProps={props}/>
     );
 }
 
