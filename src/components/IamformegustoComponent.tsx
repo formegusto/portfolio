@@ -10,6 +10,7 @@ function IamformegustoComponent() {
     const refImageBlock = useRef<HTMLDivElement>(null);
     const [aniImgBlock, setAniImgBlock] = useState<Keyframes>(ShowHalf);
     const [showPortfolio, setShowPortfolio] = useState<boolean>(false);
+    const [showEmbeded, setShowEmbeded] = useState<number>(0);
 
     const scrollBackgroundEvent = useCallback(() => {
         if(refPortfolioContainer.current) {
@@ -60,9 +61,23 @@ function IamformegustoComponent() {
                 }
 
                 refImageBlock.current.onclick = enterPortfolio;
+
+                setShowEmbeded(1);
             }
         }
     }, [aniImgBlock, enterPortfolio]);
+
+    useEffect(() => {
+        const intros = document.getElementsByClassName('intro') as HTMLCollectionOf<HTMLEmbedElement>;
+
+        intros[0].addEventListener('animationend',() => {
+            setShowEmbeded(2);
+        });
+
+        intros[1].addEventListener('animationend',() => {
+            setShowEmbeded(3);
+        });
+    }, []);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollBackgroundEvent);
@@ -92,24 +107,46 @@ function IamformegustoComponent() {
                     >
                         <img src={iamformegusto} alt="hello, iamformegusto" />
                     </ImageBlock>
-                    <TitleBlock>
-                        <em>
+                    <TitleBlock
+                        custom={{
+                            showEmbededNum: showEmbeded
+                        }}
+                    >
+                        <em className="intro">
                             Hello!&nbsp;
                         </em>
-                        <em>
-                            I'm TaeHeon, Front-End Developer.
+                        <em className="intro">
+                            I'm TaeHeon,&nbsp;
+                        </em>
+                        <em className="intro">
+                            Front-End Developer.
                         </em>
                     </TitleBlock>
                 </PortfolioContainer>
             </FullScreen>
-            <PortFolioComponent 
-                showPortfolio={showPortfolio}
-            />
+            {
+                showEmbeded === 3 && 
+                <PortFolioComponent 
+                    showPortfolio={showPortfolio}
+                />
+            }
         </>
     );
 }
 
-const TitleBlock = styled.div`
+const ShowTitle = keyframes`
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+`;
+
+type TitleStyleProps = {
+    showEmbededNum: number;
+}
+
+const TitleBlock = styled.div<{custom: TitleStyleProps}>`
     position: fixed;
     z-index: 1;
     
@@ -123,6 +160,26 @@ const TitleBlock = styled.div`
         letter-spacing: .5rem;
 
         color: ${Palette[0][7]};
+
+        opacity: 0;
+    }
+
+    & > em:nth-child(1) {
+        ${props => props.custom.showEmbededNum >= 1 && css`
+            animation: 1s ${ShowTitle} ease-in forwards;
+        `}
+    }
+
+    & > em:nth-child(2) {
+        ${props => props.custom.showEmbededNum >= 2 && css`
+            animation: 1s ${ShowTitle} ease-in forwards;
+        `}
+    }
+
+    & > em:nth-child(3) {
+        ${props => props.custom.showEmbededNum >= 3 && css`
+            animation: 1s ${ShowTitle} ease-in forwards;
+        `}
     }
 `;
 
