@@ -3,16 +3,16 @@ import styled, { css, keyframes, Keyframes } from 'styled-components';
 import Palette from '../atoms/Palette';
 import { FullScreen } from '../atoms/Screens';
 import iamformegusto from '../assets/iamformegusto.png';
+import PortFolioComponent from './PortFolioComponent';
 
 function IamformegustoComponent() {
     const refPortfolioContainer = useRef<HTMLDivElement>(null);
     const refImageBlock = useRef<HTMLDivElement>(null);
     const [aniImgBlock, setAniImgBlock] = useState<Keyframes>(ShowHalf);
+    const [showPortfolio, setShowPortfolio] = useState<boolean>(false);
 
     const scrollBackgroundEvent = useCallback(() => {
-        console.log(refPortfolioContainer.current);
         if(refPortfolioContainer.current) {
-            console.log(refPortfolioContainer.current);
             refPortfolioContainer.current.style.backgroundColor = `
                 rgb(
                     ${255 * (window.scrollY / window.screen.height)},
@@ -21,7 +21,16 @@ function IamformegustoComponent() {
                 )
             `;
         }
-    }, []);
+
+        if(refImageBlock.current) {
+            refImageBlock.current.style.width = `${500 - (window.scrollY / window.screen.height)}px`;
+            refImageBlock.current.style.height = `${500 - (window.scrollY / window.screen.height)}px`;
+        }
+
+        if(window.scrollY >= window.screen.height / 10 && !showPortfolio) {
+            setShowPortfolio(true);
+        }
+    }, [showPortfolio]);
 
     const enterPortfolio = useCallback(() => {
         window.scroll({
@@ -53,7 +62,7 @@ function IamformegustoComponent() {
                 refImageBlock.current.onclick = enterPortfolio;
             }
         }
-    }, [aniImgBlock, enterPortfolio ]);
+    }, [aniImgBlock, enterPortfolio]);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollBackgroundEvent);
@@ -83,16 +92,39 @@ function IamformegustoComponent() {
                     >
                         <img src={iamformegusto} alt="hello, iamformegusto" />
                     </ImageBlock>
+                    <TitleBlock>
+                        <em>
+                            Hello!&nbsp;
+                        </em>
+                        <em>
+                            I'm TaeHeon, Front-End Developer.
+                        </em>
+                    </TitleBlock>
                 </PortfolioContainer>
             </FullScreen>
-            <FullScreen>
-                <AboutBlock>
-
-                </AboutBlock>
-            </FullScreen>
+            <PortFolioComponent 
+                showPortfolio={showPortfolio}
+            />
         </>
     );
 }
+
+const TitleBlock = styled.div`
+    position: fixed;
+    z-index: 1;
+    
+    margin: 600px 0 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+
+    & > em {
+        font-size: 1.5rem;
+        letter-spacing: .5rem;
+
+        color: ${Palette[0][7]};
+    }
+`;
 
 const HideBlock = keyframes`
     from {
@@ -162,16 +194,6 @@ const ImageBlock = styled.div<{custom: ImageBlockStyleProps}>`
         z-index: 1;
     }
 `;
-
-const AboutBlock = styled.div`
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-
-    background-color: ${Palette[0][7]};
-`
 
 
 export default IamformegustoComponent;

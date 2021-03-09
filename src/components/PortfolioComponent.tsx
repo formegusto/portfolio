@@ -4,27 +4,36 @@ import Palette from '../atoms/Palette';
 import { FullScreen } from '../atoms/Screens';
 import iamformegusto from '../assets/iamformegusto.png';
 
-function PortfolioComponent() {
-    return <FullScreen>
-        <PortfolioContainer>
-            <PortfolioHeader>
-                <ImageBlock>
-                    <img src={iamformegusto} alt="hello, iamformegusto" />
-                </ImageBlock>
-            </PortfolioHeader>
-        </PortfolioContainer>
-    </FullScreen>
+type Props = {
+    showPortfolio: boolean;
+}
+
+function PortFolioComponent(props: Props) {
+    return (
+        <FullScreen>
+            {
+                props.showPortfolio &&
+                <PortfolioContainer>
+                    <PortfolioHeader>
+                        <ImageBlock>
+                            <img src={iamformegusto} alt="Hello, iamformegusto" />
+                        </ImageBlock>
+                    </PortfolioHeader>
+                </PortfolioContainer>
+            }
+        </FullScreen>
+    )
 }
 
 const PortfolioContainer = styled.div`
+    position: absolute;
+
+    width: 100%;
     height: 100%;
+    z-index: 2;
 
-    background-color: ${Palette[0][0]};
-`;
-
-const PortfolioHeader = styled.header`
-    height: 200px;
-`;
+    background-color: ${Palette[0][7]};
+`
 
 const ShowImage = keyframes`
     from {
@@ -41,21 +50,23 @@ const ImageBlock = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 200px;
-    height: 200px;
-
-    background-color: ${Palette[0][7]};
-
-    border-radius: 100%;
-
-    ${css`
-        animation: .7s ease-in ${ShowImage} forwards;
-    `}
+    width: 300px;
+    height: 300px;
 
     & > img {
-        width: 150px;
-        height: 150px;
+        padding: 2rem;
+
+        ${css`
+            animation: .7s ease-in ${ShowImage} forwards;
+        `}
+
+        border-radius: 100%;
+        border: 1px solid ${Palette[0][0]};
     }
 `;
 
-export default PortfolioComponent;
+const PortfolioHeader = styled.header`
+    
+`;
+
+export default PortFolioComponent;
