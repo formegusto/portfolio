@@ -75,6 +75,12 @@ function MainIntroComponent(props: Props) {
 
     return <FullScreen>
         <Container>
+            <ImageBlock ref={refImageBlock} 
+                custom={{
+                    keyFrames: aniImgBlock
+                }}>
+                <img src={iamformegusto} alt="hello, iamformegusto" />
+            </ImageBlock>
             <TitleBlock ref={refTitleBlock}
                 custom={{
                     keyframes: aniTitleBlock,
@@ -96,12 +102,6 @@ function MainIntroComponent(props: Props) {
                     개발자 노태헌 입니다.
                 </h1>
             </TitleBlock>
-            <ImageBlock ref={refImageBlock} 
-                custom={{
-                    keyFrames: aniImgBlock
-                }}>
-                <img src={iamformegusto} alt="hello, iamformegusto" />
-            </ImageBlock>
         </Container>
     </FullScreen>
 }
@@ -130,6 +130,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     height: 100%;
 
@@ -200,10 +201,6 @@ const TitleBlock = styled.div<{custom: TitleBlockStyleProps}>`
         font-weight: 100;
 
         line-height: 2.5rem;
-    }
-
-    & > h1:not(:last-child) {
-        margin-bottom: .5rem;
     }
 `
 
