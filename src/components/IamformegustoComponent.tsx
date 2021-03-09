@@ -77,6 +77,14 @@ function IamformegustoComponent() {
         intros[1].addEventListener('animationend',() => {
             setShowEmbeded(3);
         });
+
+        intros[2].addEventListener('animationend',() => {
+            setShowEmbeded(4);
+            window.scroll({
+                behavior: "smooth",
+                top: window.screen.height
+            });
+        });
     }, []);
 
     useEffect(() => {
@@ -125,7 +133,7 @@ function IamformegustoComponent() {
                 </PortfolioContainer>
             </FullScreen>
             {
-                showEmbeded === 3 && 
+                showEmbeded === 4 && 
                 <PortFolioComponent 
                     showPortfolio={showPortfolio}
                 />
