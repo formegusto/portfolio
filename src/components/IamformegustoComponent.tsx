@@ -4,10 +4,12 @@ import Palette from '../atoms/Palette';
 import { FullScreen } from '../atoms/Screens';
 import iamformegusto from '../assets/iamformegusto.png';
 import PortFolioComponent from './PortFolioComponent';
+import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineGithub } from 'react-icons/ai';
 
 function IamformegustoComponent() {
     const refPortfolioContainer = useRef<HTMLDivElement>(null);
     const refImageBlock = useRef<HTMLDivElement>(null);
+    const refContactBlock = useRef<HTMLDivElement>(null);
     const [aniImgBlock, setAniImgBlock] = useState<Keyframes>(ShowHalf);
     const [showPortfolio, setShowPortfolio] = useState<boolean>(false);
     const [showEmbeded, setShowEmbeded] = useState<number>(0);
@@ -24,12 +26,36 @@ function IamformegustoComponent() {
         }
 
         if(refImageBlock.current) {
-            refImageBlock.current.style.width = `${500 - (window.scrollY / window.screen.height)}px`;
-            refImageBlock.current.style.height = `${500 - (window.scrollY / window.screen.height)}px`;
+            refImageBlock.current.style.width = `${500 - (window.scrollY / window.innerHeight)}px`;
+            refImageBlock.current.style.height = `${500 - (window.scrollY / window.innerHeight)}px`;
         }
 
-        if(window.scrollY >= window.screen.height / 10 && !showPortfolio) {
+        if(window.scrollY >= window.innerHeight / 10 && !showPortfolio) {
             setShowPortfolio(true);
+        }
+        
+        if((window.innerHeight - window.scrollY) <= 50 && window.innerHeight >= window.screenY) {
+            if(refContactBlock.current) {
+                refContactBlock.current.style.top = `${window.innerHeight - window.scrollY}px`;
+                refContactBlock.current.style.color = `
+                    rgb(
+                        ${255 * ((window.innerHeight - window.scrollY) / 50)},
+                        ${255 * ((window.innerHeight - window.scrollY) / 50)},
+                        ${255 * ((window.innerHeight - window.scrollY) / 50)}
+                    )
+                `;
+            }
+        } else if((window.innerHeight - window.scrollY) > 50 && (window.innerHeight - window.scrollY) <= 120 && window.innerHeight >= window.screenY) {
+            if(refContactBlock.current) {
+                refContactBlock.current.style.top = `50px`;
+                refContactBlock.current.style.color = `
+                    rgb(
+                        255,
+                        255,
+                        255
+                    )
+                `;
+            }
         }
     }, [showPortfolio]);
 
@@ -130,6 +156,13 @@ function IamformegustoComponent() {
                             Front-End Developer.
                         </em>
                     </TitleBlock>
+                    <ContactBlock
+                        ref={refContactBlock}
+                    >
+                        <AiOutlineFacebook size={48}/>
+                        <AiOutlineInstagram size={48}/>
+                        <AiOutlineGithub size={48}/>
+                    </ContactBlock>
                 </PortfolioContainer>
             </FullScreen>
             {
@@ -141,6 +174,17 @@ function IamformegustoComponent() {
         </>
     );
 }
+
+const ContactBlock = styled.div`
+    display: flex;
+
+    position: fixed;
+
+    z-index: 3;
+
+    top: 50px;
+    color: ${Palette[0][7]};
+`;
 
 const ShowTitle = keyframes`
     from {
