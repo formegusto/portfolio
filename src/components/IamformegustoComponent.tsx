@@ -33,30 +33,19 @@ function IamformegustoComponent() {
         if(window.scrollY >= window.innerHeight / 10 && !showPortfolio) {
             setShowPortfolio(true);
         }
+
         
-        if((window.innerHeight - window.scrollY) <= 50 && window.innerHeight >= window.screenY) {
-            if(refContactBlock.current) {
-                refContactBlock.current.style.top = `${window.innerHeight - window.scrollY}px`;
-                refContactBlock.current.style.color = `
-                    rgb(
-                        ${255 * ((window.innerHeight - window.scrollY) / 50)},
-                        ${255 * ((window.innerHeight - window.scrollY) / 50)},
-                        ${255 * ((window.innerHeight - window.scrollY) / 50)}
-                    )
-                `;
-            }
-        } else if((window.innerHeight - window.scrollY) > 50 && (window.innerHeight - window.scrollY) <= 120 && window.innerHeight >= window.screenY) {
-            if(refContactBlock.current) {
-                refContactBlock.current.style.top = `50px`;
-                refContactBlock.current.style.color = `
-                    rgb(
-                        255,
-                        255,
-                        255
-                    )
-                `;
+        if((window.innerHeight - window.scrollY) <= (window.innerHeight / 2 + 50)) {
+            if(refContactBlock.current){
+                refContactBlock.current.style.top = `${window.innerHeight - window.scrollY + 100}px`;
             }
         }
+        else if((window.innerHeight - window.scrollY) >= (window.innerHeight / 2 + 70)) {
+            if(refContactBlock.current){
+                refContactBlock.current.style.top = `${window.innerHeight / 2 + 150}px`;
+            }
+        }
+
     }, [showPortfolio]);
 
     const enterPortfolio = useCallback(() => {
@@ -141,6 +130,7 @@ function IamformegustoComponent() {
                     >
                         <img src={iamformegusto} alt="hello, iamformegusto" />
                     </ImageBlock>
+                    
                     <TitleBlock
                         custom={{
                             showEmbededNum: showEmbeded
@@ -159,9 +149,15 @@ function IamformegustoComponent() {
                     <ContactBlock
                         ref={refContactBlock}
                     >
-                        <AiOutlineFacebook size={48}/>
-                        <AiOutlineInstagram size={48}/>
-                        <AiOutlineGithub size={48}/>
+                        <a href="https://www.facebook.com/profile.php?id=100004846296456" target="__blank">
+                            <AiOutlineFacebook size={48}/>
+                        </a>
+                        <a href="https://www.instagram.com/hi_thniii/" target="__blank">
+                            <AiOutlineInstagram size={48}/>
+                        </a>
+                        <a href="https://github.com/formegusto" target="__blank">
+                            <AiOutlineGithub size={48}/>
+                        </a>
                     </ContactBlock>
                 </PortfolioContainer>
             </FullScreen>
@@ -179,11 +175,13 @@ const ContactBlock = styled.div`
     display: flex;
 
     position: fixed;
+    top: calc(50vh + 150px);
 
     z-index: 3;
-
-    top: 50px;
-    color: ${Palette[0][7]};
+    & > a {
+        text-decoration: none;
+        color: ${Palette[0][0]};
+    }
 `;
 
 const ShowTitle = keyframes`
@@ -283,8 +281,10 @@ type ImageBlockStyleProps = {
 
 const ImageBlock = styled.div<{custom: ImageBlockStyleProps}>`
     display: flex;
+
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     position: fixed;
     z-index: 1;
