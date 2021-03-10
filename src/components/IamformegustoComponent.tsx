@@ -35,7 +35,7 @@ function IamformegustoComponent() {
         }
 
         
-        if((window.innerHeight - window.scrollY) <= (window.innerHeight / 2 + 50)) {
+        if((window.innerHeight - window.scrollY) <= (window.innerHeight / 2 + 50) && (window.innerHeight >= window.scrollY)) {
             if(refContactBlock.current){
                 refContactBlock.current.style.top = `${window.innerHeight - window.scrollY + 100}px`;
             }
@@ -51,7 +51,7 @@ function IamformegustoComponent() {
     const enterPortfolio = useCallback(() => {
         window.scroll({
             behavior: "smooth",
-            top: window.screen.height
+            top: window.innerHeight
         });
     }, []);
 

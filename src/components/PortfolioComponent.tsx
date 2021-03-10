@@ -11,16 +11,40 @@ type Props = {
 function PortFolioComponent(props: Props) {
     const menus: any[] = [
         {
-            title: "about",
+            title: "Intro",
+            onClick: () => {
+                window.scroll({
+                    behavior: "smooth",
+                    top: window.innerHeight * 1
+                });
+            }
         },
         {
-            title: "skills",
+            title: "Skills",
+            onClick: () => {
+                window.scroll({
+                    behavior: "smooth",
+                    top: window.innerHeight * 2 - 100
+                });
+            }
         },
         {
-            title: "works",
+            title: "Works",
+            onClick: () => {
+                window.scroll({
+                    behavior: "smooth",
+                    top: window.innerHeight * 3 - 200
+                });
+            }
         },
         {
-            title: "labs",
+            title: "Outro",
+            onClick: () => {
+                window.scroll({
+                    behavior: "smooth",
+                    top: window.innerHeight * 4 - 300
+                });
+            }
         },
     ]
     return (
@@ -31,7 +55,7 @@ function PortFolioComponent(props: Props) {
                     <PortfolioHeader>
                         {
                             menus.map((menu,idx) => 
-                                <HeaderItem>
+                                <HeaderItem onClick={menu.onClick} key={idx}>
                                     {menu.title}
                                 </HeaderItem>
                             )
@@ -40,6 +64,18 @@ function PortFolioComponent(props: Props) {
                             <img src={iamformegusto} alt="Hello, iamformegusto" />
                         </ImageBlock> */}
                     </PortfolioHeader>
+                    <SecondContainer>
+                
+                    </SecondContainer>
+                    <ThirdContainer>
+
+                    </ThirdContainer>
+                    <ForthContainer>
+
+                    </ForthContainer>
+                    <FifthContainer>
+
+                    </FifthContainer>
                 </PortfolioContainer>
             }
         </FullScreen>
@@ -49,12 +85,38 @@ function PortFolioComponent(props: Props) {
 const PortfolioContainer = styled.div`
     position: absolute;
 
-    width: 100%;
-    height: 100%;
     z-index: 2;
 
     background-color: ${Palette[0][7]};
 `
+
+const SecondContainer = styled.div`
+    width: 100vw;
+    height: calc(100vh - 100px);
+
+    background-color: ${Palette[0][4]};
+`;
+
+const ThirdContainer = styled.div`
+    width: 100vw;
+    height: calc(100vh - 100px);
+
+    background-color: ${Palette[0][5]};
+`;
+
+const ForthContainer = styled.div`
+    width: 100vw;
+    height: calc(100vh - 100px);
+
+    background-color: ${Palette[0][6]};
+`;
+
+const FifthContainer = styled.div`
+    width: 100vw;
+    height: calc(100vh - 100px);
+
+    background-color: ${Palette[0][7]};
+`;
 
 // const ShowImage = keyframes`
 //     from {
@@ -84,6 +146,11 @@ const PortfolioContainer = styled.div`
 
 const PortfolioHeader = styled.header`
     display: flex;
+
+    position: sticky;
+    top: 0;
+
+    background-color: ${Palette[0][7]};
 `;
 
 const HeaderItem = styled.div`
