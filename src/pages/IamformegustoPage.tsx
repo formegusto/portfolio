@@ -1,8 +1,8 @@
 import React from 'react';
-import IamformegustoComponent from '../components/IamformegustoComponent';
+import PortFolioSecondComponent from '../components/PortFolioSecondComponent';
 
 function IamformegustoPage() {
-    return <IamformegustoComponent />
+    return <PortFolioSecondComponent />
 }
 
 export default IamformegustoPage;
