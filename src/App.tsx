@@ -1,11 +1,7 @@
-import React from 'react';
-import { Route } from 'react-router';
-import IamformegustoPage from './pages/IamformegustoPage';
+import React from "react";
 
 function App() {
-  return (
-    <Route path="/portfolio" component={IamformegustoPage} exact />
-  )
+  return <>Empty</>;
 }
 
 export default App;
