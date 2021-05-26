@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import bgImg1 from "../assets/background-img-1.jpg";
 import art1 from "../assets/art_1.png";
+import art2 from "../assets/art_2.png";
 import { Montserrat } from "../styles/Fonts";
 import {
   AiOutlineFacebook,
@@ -56,7 +57,10 @@ function OnePortfolioTemplate() {
             </AboutArtBlock>
           </AboutContentWrap>
         </AboutScreen>
-        <SkillScreen />
+        <SkillScreen>
+          <h1>SKILL</h1>
+          <img src={art2} alt="art2" />
+        </SkillScreen>
         <ExperienceScreen />
         <WorkScreen />
         <TfcScreen />
@@ -213,12 +217,38 @@ const AboutArtBlock = styled.div`
 
     width: 150px;
     height: calc(100vh - 362px);
+    min-height: calc(900px - 362px);
     background-color: #fff;
   }
 `;
 
 const SkillScreen = styled.div`
+  position: relative;
   background-color: #fff;
+
+  & > h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.1em;
+
+    padding: 60px 0;
+    text-align: center;
+
+    color: #333333;
+  }
+
+  & > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: calc(600px);
+    height: calc(600px);
+  }
 `;
 
 const ExperienceScreen = styled.div`
