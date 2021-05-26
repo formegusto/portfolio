@@ -3,6 +3,9 @@ import styled from "styled-components";
 import bgImg1 from "../assets/background-img-1.jpg";
 import art1 from "../assets/art_1.png";
 import art2 from "../assets/art_2.png";
+import art3 from "../assets/art_3.png";
+import art4 from "../assets/art_4.png";
+import art5 from "../assets/art_5.png";
 import { Montserrat } from "../styles/Fonts";
 import {
   AiOutlineFacebook,
@@ -61,9 +64,23 @@ function OnePortfolioTemplate() {
           <h1>SKILL</h1>
           <img src={art2} alt="art2" />
         </SkillScreen>
-        <ExperienceScreen />
-        <WorkScreen />
-        <TfcScreen />
+        <ExperienceScreen>
+          <ExperienceArtBlock>
+            <img src={art3} alt="art3" />
+          </ExperienceArtBlock>
+          <ExperienceLine />
+        </ExperienceScreen>
+        <WorkScreen>
+          <h1>WORK</h1>
+          <img src={art4} alt="art4" />
+        </WorkScreen>
+        <TfcScreen>
+          <h1>Thx For Coming :)</h1>
+          <TfcArtBlock>
+            <img src={art5} alt="art5" />
+          </TfcArtBlock>
+          <TfcContentBlock />
+        </TfcScreen>
       </PortfolioWrap>
     </>
   );
@@ -252,15 +269,115 @@ const SkillScreen = styled.div`
 `;
 
 const ExperienceScreen = styled.div`
+  position: relative;
   background-color: ${Palette["black"][3]};
 `;
 
-const WorkScreen = styled.div`
+const ExperienceLine = styled.div`
+  position: absolute;
+  top: 300px;
+  left: calc(50% - 1.5px);
+  width: 3px;
+  height: calc(100vh - 300px);
+  min-height: calc(900px - 300px);
   background-color: #fff;
 `;
 
+const ExperienceArtBlock = styled.div`
+  position: absolute;
+  top: 0;
+  left: calc(50% - 150px);
+
+  width: 300px;
+  height: 300px;
+
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+
+  overflow: hidden;
+
+  background-color: #fff;
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const WorkScreen = styled.div`
+  position: relative;
+  background-color: #fff;
+
+  & > h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.1em;
+    text-align: center;
+    padding: 60px 0;
+
+    color: #333333;
+  }
+
+  & > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+  }
+`;
+
 const TfcScreen = styled.div`
+  position: relative;
   background-color: ${Palette["black"][3]};
+
+  & > h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.1em;
+
+    color: #ffffff;
+
+    text-align: center;
+    padding: 60px 0 68px;
+  }
+`;
+
+const TfcArtBlock = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: flex-end;
+
+  width: 400px;
+  height: 400px;
+
+  background-color: #fff;
+  border-bottom-left-radius: 100%;
+
+  & > img {
+    width: 250px;
+    height: 250px;
+  }
+`;
+
+const TfcContentBlock = styled.div`
+  width: 1200px;
+  height: 600px;
+
+  margin: 0 auto;
+  border-radius: 16px;
+
+  background-color: #373737;
 `;
 
 export default OnePortfolioTemplate;
