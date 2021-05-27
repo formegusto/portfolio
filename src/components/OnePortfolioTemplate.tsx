@@ -12,6 +12,7 @@ import {
   AiOutlineInstagram,
   AiOutlineGithub,
   AiOutlineYoutube,
+  AiOutlineBold,
 } from "react-icons/ai";
 import Palette from "../styles/Palette";
 
@@ -46,6 +47,9 @@ function OnePortfolioTemplate() {
                 target="__blank"
               >
                 <AiOutlineYoutube size={32} />
+              </a>
+              <a href="https://velog.io/@formegusto" target="__blank">
+                <AiOutlineBold size={32} />
               </a>
             </IconBlock>
           </IntroContentBlock>
