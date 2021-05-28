@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import bgImg1 from "../assets/background-img-1.jpg";
 import art1 from "../assets/art_1.png";
 import art2 from "../assets/art_2.png";
 import art3 from "../assets/art_3.png";
@@ -19,7 +18,6 @@ import Palette from "../styles/Palette";
 function OnePortfolioTemplate() {
   return (
     <>
-      <BackgroundScreen />
       <PortfolioWrap>
         <IntroScreen>
           <IntroContentBlock>
@@ -101,22 +99,6 @@ const PortfolioWrap = styled.div`
     min-width: 1280px;
     min-height: 900px;
   }
-`;
-
-const BackgroundScreen = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  background-image: url(${bgImg1});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  width: 100vw;
-  height: 100vh;
-
-  min-width: 1280px;
-  min-height: 900px;
 `;
 
 const IntroScreen = styled.div`

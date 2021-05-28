@@ -1,8 +1,8 @@
 import React from "react";
-import OnePortfolioTemplate from "./components/OnePortfolioTemplate";
+import PortfolioPage from "./pages/PortfolioPage";
 
 function App() {
-  return <OnePortfolioTemplate />;
+  return <PortfolioPage />;
 }
 
 export default App;
