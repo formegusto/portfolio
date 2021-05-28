@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import art1 from "../assets/art_1.png";
-import art2 from "../assets/art_2.png";
-import art3 from "../assets/art_3.png";
-import art4 from "../assets/art_4.png";
-import art5 from "../assets/art_5.png";
+import art1 from "../assets/art/art_1.png";
+import art2 from "../assets/art/art_2.png";
+import art3 from "../assets/art/art_3.png";
+import art4 from "../assets/art/art_4.png";
+import art5 from "../assets/art/art_5.png";
 import { Montserrat } from "../styles/Fonts";
 import {
   AiOutlineFacebook,

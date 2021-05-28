@@ -53,7 +53,6 @@ const IntroBlock = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  width: 100%;
   height: 100vh;
 
   min-height: 900px;

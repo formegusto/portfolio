@@ -134,3 +134,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+#root,
+body {
+  min-width: 1200px;
+}
