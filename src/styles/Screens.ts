@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { Montserrat } from "./Fonts";
 import { StyleTypes } from "./types";
 
-export const FullScrenn = styled.div<{ custom?: StyleTypes }>`
+export const FullScreen = styled.div<{ custom?: StyleTypes }>`
   position: relative;
 
   width: 100vw;
@@ -18,6 +18,7 @@ export const FullScrenn = styled.div<{ custom?: StyleTypes }>`
     props.custom &&
     css`
       background-color: ${props.custom.backgroubdColor};
+      z-index: ${props.custom.zIndex};
       ${props.custom.isNotDefault === true &&
       css`
          {

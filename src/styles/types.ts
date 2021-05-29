@@ -5,4 +5,5 @@ export type StyleTypes = {
   padding?: string;
   textAlign?: string;
   color?: string;
+  zIndex?: number;
 };

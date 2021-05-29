@@ -4,7 +4,7 @@ import Palette from "../styles/Palette";
 import {
   DefaultContentScreen,
   DefaultHeadScreen,
-  FullScrenn,
+  FullScreen,
 } from "../styles/Screens";
 import artformegusto from "../assets/img/artformegusto.jpg";
 import devformegusto from "../assets/img/devformegusto.jpg";
@@ -13,7 +13,7 @@ import art from "../assets/art/art_1.png";
 
 function AboutComponent() {
   return (
-    <FullScrenn
+    <FullScreen
       custom={{
         backgroubdColor: Palette["black"][3],
         isNotDefault: true,
@@ -63,7 +63,7 @@ function AboutComponent() {
         </ArtBlock>
         <ArtLine />
       </DefaultContentScreen>
-    </FullScrenn>
+    </FullScreen>
   );
 }
 
