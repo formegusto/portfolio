@@ -1,28 +1,26 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.3699e7b3.chunk.css",
-    "main.js": "/portfolio/static/js/main.729c4c73.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.729c4c73.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.e04ef7ea.chunk.css",
+    "main.js": "/portfolio/static/js/main.6ae4d517.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.6ae4d517.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.05e7a833.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.05e7a833.js.map",
-    "static/js/2.d6fbb00e.chunk.js": "/portfolio/static/js/2.d6fbb00e.chunk.js",
-    "static/js/2.d6fbb00e.chunk.js.map": "/portfolio/static/js/2.d6fbb00e.chunk.js.map",
+    "static/js/2.3ea3cf93.chunk.js": "/portfolio/static/js/2.3ea3cf93.chunk.js",
+    "static/js/2.3ea3cf93.chunk.js.map": "/portfolio/static/js/2.3ea3cf93.chunk.js.map",
     "static/js/3.3d6a441d.chunk.js": "/portfolio/static/js/3.3d6a441d.chunk.js",
     "static/js/3.3d6a441d.chunk.js.map": "/portfolio/static/js/3.3d6a441d.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.3699e7b3.chunk.css.map": "/portfolio/static/css/main.3699e7b3.chunk.css.map",
-    "static/js/2.d6fbb00e.chunk.js.LICENSE.txt": "/portfolio/static/js/2.d6fbb00e.chunk.js.LICENSE.txt",
-    "static/media/art_1.70c4e5bd.png": "/portfolio/static/media/art_1.70c4e5bd.png",
-    "static/media/art_2.f226d867.png": "/portfolio/static/media/art_2.f226d867.png",
-    "static/media/art_3.00fc660a.png": "/portfolio/static/media/art_3.00fc660a.png",
-    "static/media/art_4.0d422920.png": "/portfolio/static/media/art_4.0d422920.png",
-    "static/media/art_5.434ecc5d.png": "/portfolio/static/media/art_5.434ecc5d.png",
-    "static/media/background-img-1.c3df6b62.jpg": "/portfolio/static/media/background-img-1.c3df6b62.jpg"
+    "static/css/main.e04ef7ea.chunk.css.map": "/portfolio/static/css/main.e04ef7ea.chunk.css.map",
+    "static/js/2.3ea3cf93.chunk.js.LICENSE.txt": "/portfolio/static/js/2.3ea3cf93.chunk.js.LICENSE.txt",
+    "static/media/artformegusto.bb07d56b.jpg": "/portfolio/static/media/artformegusto.bb07d56b.jpg",
+    "static/media/background-img-1.c3df6b62.jpg": "/portfolio/static/media/background-img-1.c3df6b62.jpg",
+    "static/media/devformegusto.7efb15eb.jpg": "/portfolio/static/media/devformegusto.7efb15eb.jpg",
+    "static/media/iamformegusto.389add89.jpg": "/portfolio/static/media/iamformegusto.389add89.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.05e7a833.js",
-    "static/js/2.d6fbb00e.chunk.js",
-    "static/css/main.3699e7b3.chunk.css",
-    "static/js/main.729c4c73.chunk.js"
+    "static/js/2.3ea3cf93.chunk.js",
+    "static/css/main.e04ef7ea.chunk.css",
+    "static/js/main.6ae4d517.chunk.js"
   ]
 }
