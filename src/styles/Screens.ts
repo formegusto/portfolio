@@ -18,7 +18,7 @@ export const FullScrenn = styled.div<{ custom?: StyleTypes }>`
     props.custom &&
     css`
       background-color: ${props.custom.backgroubdColor};
-      ${!props.custom.isNotDefault === false &&
+      ${props.custom.isNotDefault === true &&
       css`
          {
           height: auto;
