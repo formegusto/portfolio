@@ -9,6 +9,7 @@ import {
 import artformegusto from "../assets/img/artformegusto.jpg";
 import devformegusto from "../assets/img/devformegusto.jpg";
 import iamformegusto from "../assets/img/iamformegusto.jpg";
+import art from "../assets/art/art_1.png";
 
 function AboutComponent() {
   return (
@@ -57,10 +58,47 @@ function AboutComponent() {
             </ArtFormegusto>
           </LeftBlock>
         </AboutBlock>
+        <ArtBlock>
+          <img src={art} alt="about art" />
+        </ArtBlock>
+        <ArtLine />
       </DefaultContentScreen>
     </FullScrenn>
   );
 }
+
+const ArtBlock = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(142px + 32px);
+  right: 0;
+
+  background-color: #fff;
+
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  z-index: 1;
+
+  & > img {
+    width: 200px;
+    height: 200px;
+  }
+`;
+
+const ArtLine = styled.div`
+  position: absolute;
+  top: calc(142px + 32px + 150px);
+  right: 0;
+
+  background-color: #fff;
+
+  width: 150px;
+
+  height: calc(100% - 142px - 150px - 32px);
+`;
 
 const AboutBlock = styled.div`
   display: flex;
@@ -127,6 +165,7 @@ const DevFormegusto = styled.div`
     background-image: url(${devformegusto});
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 0 -30px;
   }
 `;
 
