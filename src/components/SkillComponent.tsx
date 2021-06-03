@@ -8,7 +8,7 @@ import art from "../assets/art/art_2.png";
 import styled from "styled-components";
 import { Montserrat } from "../styles/Fonts";
 import Palette from "../styles/Palette";
-import HTML from "../assets/skill/HTML.png";
+import Skills from "../stores/Skill";
 
 function SkillComponent() {
   return (
@@ -36,89 +36,89 @@ function SkillComponent() {
           <SkillSetBlock>
             <SkillGrp>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["html"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["css"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["js"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["ts"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["react"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["mobx"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["redux"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-            </SkillGrp>
-            <SkillGrp>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
-                <Shadow />
-              </Skill>
-              <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["node"]}
                 <Shadow />
               </Skill>
             </SkillGrp>
             <SkillGrp>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["c"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["csharp"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["winform"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["java"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["spring"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["flutter"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["mysql"]}
                 <Shadow />
               </Skill>
             </SkillGrp>
             <SkillGrp>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["ec2"]}
                 <Shadow />
               </Skill>
               <Skill>
-                <img src={HTML} alt="html" />
+                {Skills["s3"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["linux"]}
+                <Shadow />
+              </Skill>
+            </SkillGrp>
+            <SkillGrp>
+              <Skill>
+                {Skills["figma"]}
+                <Shadow />
+              </Skill>
+              <Skill>
+                {Skills["notion"]}
                 <Shadow />
               </Skill>
             </SkillGrp>
@@ -184,6 +184,8 @@ const Skill = styled.div`
   display: inline-block;
   position: relative;
   border-radius: 75px;
+
+  cursor: pointer;
 
   & > img {
     width: 75px;
