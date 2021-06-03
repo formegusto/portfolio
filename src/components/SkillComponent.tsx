@@ -8,6 +8,7 @@ import art from "../assets/art/art_2.png";
 import styled from "styled-components";
 import { Montserrat } from "../styles/Fonts";
 import Palette from "../styles/Palette";
+import HTML from "../assets/skill/HTML.png";
 
 function SkillComponent() {
   return (
@@ -32,7 +33,96 @@ function SkillComponent() {
             <ArtWrap />
             <SkillTyping>&lt; any &gt;.formegusto</SkillTyping>
           </ArtBlock>
-          <SkillSetBlock></SkillSetBlock>
+          <SkillSetBlock>
+            <SkillGrp>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+            </SkillGrp>
+            <SkillGrp>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+            </SkillGrp>
+            <SkillGrp>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+            </SkillGrp>
+            <SkillGrp>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+              <Skill>
+                <img src={HTML} alt="html" />
+                <Shadow />
+              </Skill>
+            </SkillGrp>
+          </SkillSetBlock>
         </SkillBlock>
       </DefaultContentScreen>
     </FullScreen>
@@ -72,7 +162,45 @@ const ArtWrap = styled.div`
 `;
 
 const SkillSetBlock = styled.div`
-  height: 600px;
+  padding: 72px 0;
+
+  & > div:not(:last-child) {
+    margin: 0 0 32px;
+  }
+`;
+
+const SkillGrp = styled.div`
+  text-align: center;
+
+  & > div:not(:last-child) {
+    margin: 0 12px 0 0;
+  }
+`;
+
+const Skill = styled.div`
+  width: 75px;
+  height: 75px;
+
+  display: inline-block;
+  position: relative;
+  border-radius: 75px;
+
+  & > img {
+    width: 75px;
+    height: 75px;
+  }
+`;
+
+const Shadow = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+
+  background: rgba(45, 45, 45, 0.3);
 `;
 
 const SkillTyping = styled.h1`
