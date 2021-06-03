@@ -6,98 +6,91 @@ import {
 } from "../styles/Screens";
 import art from "../assets/art/art_2.png";
 import styled from "styled-components";
+import { Montserrat } from "../styles/Fonts";
+import Palette from "../styles/Palette";
 
 function SkillComponent() {
   return (
     <FullScreen
       custom={{
-        backgroubdColor: "#FFF",
+        backgroubdColor: "#2D2D2D",
         isNotDefault: true,
       }}
     >
-      <ArtBlock>
-        <img src={art} alt="Skill art" />
-      </ArtBlock>
-      <DefaultHeadScreen
-        custom={{
-          textAlign: "center",
-          color: "#333",
-        }}
-      >
-        <h1>SKILL</h1>
-      </DefaultHeadScreen>
       <DefaultContentScreen>
         <SkillBlock>
-          <IconGrpBlock />
-          <AnyFormegusto>
-            <h1>&lt; any &gt;.formegusto</h1>
-          </AnyFormegusto>
+          <DefaultHeadScreen
+            custom={{
+              textAlign: "center",
+              color: "#333",
+            }}
+          >
+            <h1>SKILL</h1>
+          </DefaultHeadScreen>
+          <ArtBlock>
+            <img src={art} alt="Skill Art" />
+            <ArtWrap />
+            <SkillTyping>&lt; any &gt;.formegusto</SkillTyping>
+          </ArtBlock>
+          <SkillSetBlock></SkillSetBlock>
         </SkillBlock>
       </DefaultContentScreen>
     </FullScreen>
   );
 }
 
-const ArtBlock = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  & > img {
-    width: 500px;
-    height: 500px;
-  }
-`;
-
 const SkillBlock = styled.div`
-  position: relative;
-  width: calc(100% - 250px);
-
-  z-index: 1;
-  box-shadow: 12px 12px 16px rgba(45, 45, 45, 0.5);
-  border-radius: 16px 16px 0px 0px;
+  width: 100%;
+  overflow: hidden;
 
   background-color: #fff;
+  border-radius: 300px 0 300px 0;
 `;
 
-const IconGrpBlock = styled.div`
-  width: 689px;
-  height: 633px;
+const ArtBlock = styled.div`
+  position: relative;
+  overflow: hidden;
 
-  width: calc(100% - 250px);
-  height: calc(650px + 108px);
-`;
+  & > img {
+    position: absolute;
+    right: 0;
+    transform: translateY(-100px);
 
-const AnyFormegusto = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-
-  width: calc(100% - 300px);
-  height: 650px;
-  background: #2d2d2d;
-  border-radius: 100% 0px 0px 0px;
-
-  min-width: 650px;
-
-  & > h1 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 59px;
-    /* identical to box height */
-
-    letter-spacing: 0.1em;
-    text-transform: lowercase;
-
-    color: #dddddd;
-
-    text-shadow: 0px 10px 8px rgba(0, 0, 0, 0.4);
-    transform: rotate(-45deg);
+    width: 300px;
+    height: 300px;
   }
+`;
+
+const ArtWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 45, 45, 0.1);
+`;
+
+const SkillSetBlock = styled.div`
+  height: 600px;
+`;
+
+const SkillTyping = styled.h1`
+  text-align: center;
+  margin: 56px 0;
+
+  ${Montserrat}
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+
+  text-transform: lowercase;
+
+  color: ${Palette["black"][3]};
+
+  text-shadow: 0px 8px 8px rgba(0, 0, 0, 0.4);
 `;
 
 export default SkillComponent;
