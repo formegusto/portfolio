@@ -85,4 +85,13 @@ export const DefaultHeadScreen = styled.div<{ custom?: StyleTypes }>`
         color: ${props.custom.color};
       `}
   }
+
+  ${(props) => css`
+    ${props.custom?.isNotDefault === true &&
+    css`
+       {
+        min-width: auto;
+      }
+    `}
+  `}
 `;
