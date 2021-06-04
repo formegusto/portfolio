@@ -15,7 +15,6 @@ function ThxComponent() {
     <FullScreen
       custom={{
         backgroubdColor: Palette["black"][3],
-        isNotDefault: true,
       }}
     >
       <DefaultHeadScreen
@@ -79,6 +78,7 @@ const ThxBlock = styled.div`
   flex-direction: row;
 
   min-height: 600px;
+  height: calc(100vh - 300px);
   margin: 0 75px;
 `;
 
