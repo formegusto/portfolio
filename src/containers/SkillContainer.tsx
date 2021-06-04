@@ -9,7 +9,11 @@ function SkillContainer() {
     (idx: number) => {
       const { skill: now } = refSkillText.current?.dataset as any;
       if (now !== skill) return;
-      if (refSkillText.current) refSkillText.current.textContent += skill[idx];
+      if (refSkillText.current) {
+        const chk = refSkillText.current.textContent?.length;
+        if (chk !== idx) return;
+        refSkillText.current.textContent += skill[idx];
+      }
       if (idx + 1 >= skill.length) return;
       setTimeout(textEvent, 100, idx + 1);
     },
