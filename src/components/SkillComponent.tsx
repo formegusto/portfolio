@@ -121,6 +121,7 @@ const Skill = styled.div`
   position: relative;
   border-radius: 75px;
 
+  overflow: hidden;
   cursor: pointer;
 
   & > img {
