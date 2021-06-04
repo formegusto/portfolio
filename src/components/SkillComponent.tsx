@@ -44,100 +44,20 @@ function SkillComponent(props: Props) {
             </SkillTyping>
           </ArtBlock>
           <SkillSetBlock>
-            <SkillGrp>
-              <Skill
-                onMouseEnter={() => props.onMouseEnter(`html`)}
-                onMouseLeave={props.onMouseLeave}
-              >
-                {Skills["html"]}
-                <Shadow />
-              </Skill>
-              <Skill
-                onMouseEnter={() => props.onMouseEnter("css")}
-                onMouseLeave={props.onMouseLeave}
-              >
-                {Skills["css"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["js"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["ts"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["react"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["mobx"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["redux"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["node"]}
-                <Shadow />
-              </Skill>
-            </SkillGrp>
-            <SkillGrp>
-              <Skill>
-                {Skills["c"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["csharp"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["winform"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["java"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["spring"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["flutter"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["mysql"]}
-                <Shadow />
-              </Skill>
-            </SkillGrp>
-            <SkillGrp>
-              <Skill>
-                {Skills["ec2"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["s3"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["linux"]}
-                <Shadow />
-              </Skill>
-            </SkillGrp>
-            <SkillGrp>
-              <Skill>
-                {Skills["figma"]}
-                <Shadow />
-              </Skill>
-              <Skill>
-                {Skills["notion"]}
-                <Shadow />
-              </Skill>
-            </SkillGrp>
+            {Skills.map((skill, idx) => (
+              <SkillGrp>
+                {skill.map((s) => (
+                  <Skill
+                    key={s.name}
+                    onMouseEnter={() => props.onMouseEnter(s.name)}
+                    onMouseLeave={props.onMouseLeave}
+                  >
+                    {s.tag}
+                    <Shadow />
+                  </Skill>
+                ))}
+              </SkillGrp>
+            ))}
           </SkillSetBlock>
         </SkillBlock>
       </DefaultContentScreen>
@@ -241,7 +161,7 @@ const SkillTyping = styled.h1`
   line-height: 44px;
   /* identical to box height */
 
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 
   color: ${Palette["black"][3]};
 
