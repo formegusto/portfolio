@@ -35,11 +35,12 @@ function ExperienceComponent() {
             >
               <h1>EXPERIENCE</h1>
             </DefaultHeadScreen>
-            <div
-              style={{
-                height: "900px",
-              }}
-            ></div>
+            <ExpGroup>
+              <ExpBox></ExpBox>
+              <ExpBox></ExpBox>
+              <ExpBox></ExpBox>
+              <ExpBox></ExpBox>
+            </ExpGroup>
           </ContentBlock>
         </ExpBlock>
       </DefaultContentScreen>
@@ -59,6 +60,35 @@ const SideBlock = styled.div`
 `;
 const ContentBlock = styled.div`
   flex: 1;
+`;
+
+const ExpGroup = styled.div`
+  width: 100%;
+  padding: 0 24px 150px;
+  box-sizing: border-box;
+
+  & > div:nth-child(odd) {
+    border-radius: 0 200px 200px 0;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  & > div:nth-child(even) {
+    border-radius: 200px 0 0 200px;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  }
+`;
+
+const ExpBox = styled.div`
+  width: 100%;
+  height: 350px;
+
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  background-color: #2d2d2d;
 `;
 
 const ArtBlock = styled.div`
