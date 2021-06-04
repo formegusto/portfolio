@@ -5,12 +5,19 @@ import {
   FullScreen,
 } from "../styles/Screens";
 import art from "../assets/art/art_2.png";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Montserrat } from "../styles/Fonts";
 import Palette from "../styles/Palette";
 import Skills from "../stores/Skill";
 
-function SkillComponent() {
+type Props = {
+  skill: string;
+  refSkillText: React.Ref<HTMLElement>;
+  onMouseEnter: (skill: string) => void;
+  onMouseLeave: () => void;
+};
+
+function SkillComponent(props: Props) {
   return (
     <FullScreen
       custom={{
@@ -31,15 +38,24 @@ function SkillComponent() {
           <ArtBlock>
             <img src={art} alt="Skill Art" />
             <ArtWrap />
-            <SkillTyping>&lt; any &gt;.formegusto</SkillTyping>
+            <SkillTyping>
+              &lt; <em ref={props.refSkillText} data-skill={props.skill}></em>{" "}
+              &gt;.formegusto
+            </SkillTyping>
           </ArtBlock>
           <SkillSetBlock>
             <SkillGrp>
-              <Skill>
+              <Skill
+                onMouseEnter={() => props.onMouseEnter(`html`)}
+                onMouseLeave={props.onMouseLeave}
+              >
                 {Skills["html"]}
                 <Shadow />
               </Skill>
-              <Skill>
+              <Skill
+                onMouseEnter={() => props.onMouseEnter("css")}
+                onMouseLeave={props.onMouseLeave}
+              >
                 {Skills["css"]}
                 <Shadow />
               </Skill>
@@ -204,6 +220,15 @@ const Shadow = styled.div`
 
   background: rgba(45, 45, 45, 0.3);
 `;
+const cursorAni = keyframes`
+  0% {
+    opacity: 0;
+  } 50% {
+    opacity: 1;
+  } 100% {
+    opacity: 0;
+  }
+`;
 
 const SkillTyping = styled.h1`
   text-align: center;
@@ -221,6 +246,25 @@ const SkillTyping = styled.h1`
   color: ${Palette["black"][3]};
 
   text-shadow: 0px 8px 8px rgba(0, 0, 0, 0.4);
+
+  & > em {
+    position: relative;
+  }
+
+  & > em::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    height: 80%;
+    transform: translateX(5px);
+    background-color: #2d2d2d;
+
+    ${css`
+      animation: ${cursorAni} infinite step-end 0.7s;
+    `};
+  }
 `;
 
 export default SkillComponent;
