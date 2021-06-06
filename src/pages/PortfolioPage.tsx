@@ -3,9 +3,9 @@ import AboutComponent from "../components/AboutComponent";
 import BackgroundComponent from "../components/BackgroundComponent";
 import ExperienceComponent from "../components/ExperienceComponent";
 import IntroComponent from "../components/IntroComponent";
-import ThxComponent from "../components/ThxComponent";
 import WorkComponent from "../components/WorkComponent";
 import SkillContainer from "../containers/SkillContainer";
+import ThxContainer from "../containers/ThxContainer";
 
 function PortfolioPage() {
   return (
@@ -16,7 +16,7 @@ function PortfolioPage() {
       <SkillContainer />
       <ExperienceComponent />
       <WorkComponent />
-      <ThxComponent />
+      <ThxContainer />
     </>
   );
 }

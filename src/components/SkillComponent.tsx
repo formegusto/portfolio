@@ -45,7 +45,7 @@ function SkillComponent(props: Props) {
           </ArtBlock>
           <SkillSetBlock>
             {Skills.map((skill, idx) => (
-              <SkillGrp>
+              <SkillGrp key={idx}>
                 {skill.map((s) => (
                   <Skill
                     key={s.name}

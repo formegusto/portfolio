@@ -10,7 +10,11 @@ import art from "../assets/art/art_5.png";
 import thxformgusto from "../assets/img/thxformegusto.jpg";
 import { Montserrat } from "../styles/Fonts";
 
-function ThxComponent() {
+type Props = {
+  imgBlockRef: React.Ref<HTMLDivElement>;
+};
+
+function ThxComponent(props: Props) {
   return (
     <FullScreen
       custom={{
@@ -32,7 +36,7 @@ function ThxComponent() {
       >
         <ThxBlock>
           <ThxContent></ThxContent>
-          <ThxFormegusto>
+          <ThxFormegusto ref={props.imgBlockRef}>
             <ImgShadow />
             <h1>
               ENJOY
@@ -76,6 +80,7 @@ const ArtBlock = styled.div`
 const ThxBlock = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 
   min-height: 600px;
   height: calc(100vh - 300px);
@@ -91,11 +96,17 @@ const ThxFormegusto = styled.div`
   position: relative;
   align-items: center;
 
-  width: 300px;
+  width: 600px;
 
   background-image: url(${thxformgusto});
   background-size: cover;
   background-position: 70%;
+  transform: translateX(300px);
+  transition: 0.5s;
+
+  &.big {
+    transform: none;
+  }
 
   & > h1 {
     ${Montserrat};
