@@ -6,7 +6,11 @@ import {
   FullScreen,
 } from "../styles/Screens";
 import art from "../assets/art/art_3.png";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import didcme from "../assets/img/didcme.jpg";
+import dongyangme from "../assets/img/dongyangme.jpg";
+import ketime from "../assets/img/ketime.jpg";
+import laonme from "../assets/img/laonme.jpg";
 
 function ExperienceComponent() {
   return (
@@ -36,10 +40,26 @@ function ExperienceComponent() {
               <h1>EXPERIENCE</h1>
             </DefaultHeadScreen>
             <ExpGroup>
-              <ExpBox></ExpBox>
-              <ExpBox></ExpBox>
-              <ExpBox></ExpBox>
-              <ExpBox></ExpBox>
+              <ExpBox className="right">
+                <ExpImage className="exp-img" imgUrl={dongyangme}>
+                  <ExpImageShadow />
+                </ExpImage>
+              </ExpBox>
+              <ExpBox className="left">
+                <ExpImage className="exp-img" imgUrl={didcme}>
+                  <ExpImageShadow />
+                </ExpImage>
+              </ExpBox>
+              <ExpBox className="right">
+                <ExpImage className="exp-img" imgUrl={laonme}>
+                  <ExpImageShadow />
+                </ExpImage>
+              </ExpBox>
+              <ExpBox className="left">
+                <ExpImage className="exp-img" imgUrl={ketime}>
+                  <ExpImageShadow />
+                </ExpImage>
+              </ExpBox>
             </ExpGroup>
           </ContentBlock>
         </ExpBlock>
@@ -47,6 +67,25 @@ function ExperienceComponent() {
     </FullScreen>
   );
 }
+
+const ExpImage = styled.div<{ imgUrl: string }>`
+  position: absolute;
+  width: 225px;
+  height: 100%;
+
+  ${(props) =>
+    css`
+      background-image: url(${props.imgUrl});
+      background-size: cover;
+      background-repeat: no-repeat;
+    `}
+`;
+
+const ExpImageShadow = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 
 const ExpBlock = styled.div`
   display: flex;
@@ -66,29 +105,53 @@ const ExpGroup = styled.div`
   width: 100%;
   padding: 0 24px 150px;
   box-sizing: border-box;
-
-  & > div:nth-child(odd) {
-    border-radius: 0 200px 200px 0;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-  }
-
-  & > div:nth-child(even) {
-    border-radius: 200px 0 0 200px;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-  }
 `;
 
 const ExpBox = styled.div`
+  position: relative;
+
   width: 100%;
   height: 350px;
 
   box-sizing: border-box;
-  border: 1px solid #fff;
   background-color: #2d2d2d;
+  overflow: hidden;
+
+  &.right {
+    border-radius: 0 200px 200px 0;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+
+    & > .exp-img {
+      right: 0;
+      & > div {
+        background: linear-gradient(
+          90deg,
+          #2d2d2d 0%,
+          rgba(45, 45, 45, 0) 103.78%
+        );
+      }
+    }
+  }
+
+  &.left {
+    border-radius: 200px 0 0 200px;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+
+    & > .exp-img {
+      left: 0;
+      & > div {
+        background: linear-gradient(
+          270deg,
+          #2d2d2d 0%,
+          rgba(45, 45, 45, 0) 100%
+        );
+      }
+    }
+  }
 `;
 
 const ArtBlock = styled.div`
