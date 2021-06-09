@@ -40,22 +40,22 @@ function ExperienceComponent() {
               <h1>EXPERIENCE</h1>
             </DefaultHeadScreen>
             <ExpGroup>
-              <ExpBox className="right">
+              <ExpBox className="right dongyang">
                 <ExpImage className="exp-img" imgUrl={dongyangme}>
                   <ExpImageShadow />
                 </ExpImage>
               </ExpBox>
-              <ExpBox className="left">
+              <ExpBox className="left didc">
                 <ExpImage className="exp-img" imgUrl={didcme}>
                   <ExpImageShadow />
                 </ExpImage>
               </ExpBox>
-              <ExpBox className="right">
+              <ExpBox className="right laon">
                 <ExpImage className="exp-img" imgUrl={laonme}>
                   <ExpImageShadow />
                 </ExpImage>
               </ExpBox>
-              <ExpBox className="left">
+              <ExpBox className="left keti">
                 <ExpImage className="exp-img" imgUrl={ketime}>
                   <ExpImageShadow />
                 </ExpImage>
@@ -151,6 +151,16 @@ const ExpBox = styled.div`
         );
       }
     }
+  }
+
+  &.dongyang > .exp-img {
+    background-position: 40%;
+  }
+  &.didc > .exp-img {
+    background-position: 30%;
+  }
+  &.keti > .exp-img {
+    background-position: 60%;
   }
 `;
 
